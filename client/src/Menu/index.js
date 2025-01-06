@@ -47,15 +47,15 @@ const Menu = () => {
 
   return (
     <div>
-        <div className="w-[100%] bg-[#232f3e] flex justify-around">
-            <div className="text-[#ffffff] p-1 flex gap-1 cursor-pointer" onClick={toggleDrawer(true)}>
+        <div className="w-[100%] min-w-[1100px] bg-[#232f3e] flex justify-around">
+            <div className="text-[#ffffff] p-1 m-[1px] flex gap-1 cursor-pointer hover:border-solid hover:border-[1px] hover:border-[#ffffff] hover:m-0 focus:border-solid focus:border-[1px] focus:border-[#ffffff] focus:m-0" onClick={toggleDrawer(true)}>
                 <MenuIcon />
                 All
             </div>
             {menuOptions.map((item)=>{
-                return(<div className="text-[#ffffff] p-1 cursor-pointer">
+                return(<button className="text-[#ffffff] p-1 m-[1px] grow-1 cursor-pointer hover:border-solid hover:border-[1px] hover:border-[#ffffff] hover:m-0 focus:border-solid focus:border-[1px] focus:border-[#ffffff] focus:m-0">
                     {item}
-                </div>)
+                </button>)
             })}
         </div>
         <Drawer sx={{width: '20rem'}} open={open} onClose={toggleDrawer(false)}>
