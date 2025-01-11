@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const Menu = () => {
     const [open, setOpen] = useState(false);
@@ -19,6 +18,8 @@ const Menu = () => {
   
     const DrawerList = (
       <Box sx={{ width: "20rem" }} role="presentation" onClick={toggleDrawer(false)}>
+        <div className="text-[22px] font-bold mb-[10px] p-[10px] bg-[#232f3e] text-[#ffffff] w-[100%] flex items-center">
+          <AccountCircleIcon sx={{fontSize:'25px'}}></AccountCircleIcon>&nbsp;&nbsp;Hello, Sign in</div>
         <div className="text-[20px] font-bold ml-[10px] mt-[10px]">Trending</div>
         <List>
           {['Best Sellers', 'New Releases', 'Movers & Shakers'].map((text, index) => (

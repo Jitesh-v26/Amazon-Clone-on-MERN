@@ -33,7 +33,7 @@ const Home = () => {
   ]
 
   return (
-    <div>
+    <div className='min-w-[1100px]'>
       <Header />
       <Menu />
       <div className='w-[100%] flex justify-center px-[2rem] pt-[2rem]'>
@@ -42,7 +42,7 @@ const Home = () => {
             return(
               <div>
                 <div className='font-semibold text-[18px] mb-[10px]'>{item.title}</div>
-                <img className="w-[20rem] h-[20rem]" src={item.img} />
+                <img className="w-[20rem] h-[20rem]" src={item.img} alt="category" />
               </div>
             )
           })}

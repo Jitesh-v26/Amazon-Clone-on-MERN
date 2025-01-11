@@ -1,9 +1,53 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import Header from '../Header';
+import Menu from '../Menu';
+import StarHalfIcon from '@mui/icons-material/StarHalf';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+import StarIcon from '@mui/icons-material/Star';
 
-const Product = () => {
+const Products = () => {
+
+  const [products, setProducts] = useState([]);
+  const [api, setApi] = useState(false);
+
+  useEffect(()=>{
+    fetch('https://fakestoreapi.com/products')
+      .then(res=>res.json())
+      .then(json=>{
+        setApi(true);
+        setProducts(json);
+        console.log("Product is here -->",products);
+      }); 
+  }, [])
+
+  useEffect(()=>{
+    let temp = products;
+      temp = temp.map((item, index)=>{
+        return {...item, fullStar: Math.floor(item.rating.rate), halfStar: Math.floor(item.rating.rate) != item.rating.rate ? 1 : 0, borderStar: 5-Math.ceil(item.rating.rate)}
+      })
+      setProducts(temp);
+      console.log("Product in temp value -->",products);
+  }, [api]) 
+
+  console.log(products);
+
   return (
-    <div>Product</div>
+    <div>
+      <Header />
+      <Menu />
+      <div className='flex flex-wrap gap-[6rem] justify-center items-end'>
+        {products.map((item)=>{
+          return(
+            <div key={item.id}>
+              <img width="200px" height="200px" className='max-h-[200px]'  src={item.image} />
+              <div className='w-[200px] text-wrap text-[#2162a1] cursor-pointer hover:underline'>{item.title}</div>
+              <div className='text-[#b12704]'>${item.price}</div>
+            </div>
+          )
+        })}
+      </div>
+    </div>
   )
 }
 
-export default Product
+export default Products
