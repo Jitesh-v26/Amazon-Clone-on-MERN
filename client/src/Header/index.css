@@ -19,7 +19,7 @@
     flex: 1;
   }
   
-  .header__searchInput {
+  .header__searchInput {  
     height: 40px;
     padding: 10px;
     border: none;
